@@ -1,0 +1,1 @@
+export {APP_ROUTES, type TAPP_ROUTES} from './route.constants'
