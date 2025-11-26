@@ -1,1 +1,1 @@
-export type {IUser} from '../model/types/user.model'
+export type {IUser} from '../model/user.types'

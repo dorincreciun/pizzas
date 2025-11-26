@@ -1,5 +1,5 @@
 import {create} from "zustand/react";
-import type {ISessionStore} from "../types/session-store";
+import type {ISessionStore} from "./session.types";
 
 export const useSessionStore = create<ISessionStore>()((setState) => {
     return {

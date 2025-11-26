@@ -1,1 +1,1 @@
-export {useSessionStore} from './model/hooks/useSessionStore'
+export {useSessionStore} from './model/use-session-store'
