@@ -1,1 +1,1 @@
-export {RegisterFormFields } from './ui/RegisterFormFields'
+export {RegisterForm } from './ui/RegisterForm'

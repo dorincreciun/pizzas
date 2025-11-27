@@ -1,1 +1,1 @@
-export {Router} from './Router'
+export {Routing} from './Routing'

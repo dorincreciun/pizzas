@@ -1,9 +1,10 @@
-import {ButtonLogin} from "@features/auth/user-login";
 import {APP_ROUTES} from "@shared/config";
 import {Link} from "react-router";
-import {Logo} from "@shared/ui";
+import {Button, Logo} from "@shared/ui";
+import {useAuthModal} from "@widgets/auth-modal";
 
 export const Header = () => {
+    const open = useAuthModal((s) => s.open)
     return (
         <header>
             <div className="container flex justify-between items-center py-4">
@@ -12,7 +13,9 @@ export const Header = () => {
                     <Logo />
                 </div>
 
-                <ButtonLogin />
+                <Button onClick={open}>
+                    Login
+                </Button>
             </div>
         </header>
     )

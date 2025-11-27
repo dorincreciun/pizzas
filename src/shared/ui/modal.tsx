@@ -1,15 +1,15 @@
-import {type FC, type ReactNode, useEffect} from "react";
+import {useEffect, type FC, type ReactNode} from "react";
 import {createPortal} from "react-dom";
 import {cn} from "@shared/lib/cn";
 
-interface IModalProps {
+export interface IModal {
     isOpen: boolean;
     className?: string;
     onClose?: () => void;
     render: () => ReactNode;
 }
 
-export const Modal: FC<IModalProps> = ({ isOpen, onClose, render, className }) => {
+export const Modal: FC<IModal> = ({isOpen, onClose, render, className}) => {
     useEffect(() => {
         if (!isOpen) return;
 

@@ -2,29 +2,18 @@ import {Input, Label} from "@shared/ui";
 import {useId, useState} from "react";
 import {AtSign, Eye, EyeOff, LockKeyhole} from "lucide-react";
 import {cn} from "@shared/lib/cn";
-import {useRegisterForm} from "../model/use-register-form";
+import {useLoginForm} from "../model/use-login-form";
 
-export const RegisterFormFields = () => {
-    const {state, setEmail, setPassword, setName} = useRegisterForm()
+export const LoginForm = () => {
+    const {state, setEmail, setPassword} = useLoginForm()
     const [showPassword, setShowPassword] = useState<boolean>(false)
 
     const idEmail = useId()
-    const idName = useId()
     const idPassword = useId()
 
     return (
-        <div className="flex flex-col gap-4">
-            <h2 className={"text-center font-semibold text-2xl"}>Register</h2>
-            <div className="flex flex-col gap-2">
-                <Label htmlFor={idName}>Name:</Label>
-                <Input
-                    id={idName}
-                    size="small"
-                    placeholder="Write name..."
-                    value={state.name}
-                    onChange={(e): void => setName(e.target.value)}
-                />
-            </div>
+        <form className="flex flex-col gap-4">
+            <h2 className={"text-center font-semibold text-2xl"}>Login</h2>
             <div className="flex flex-col gap-2">
                 <Label htmlFor={idEmail}>Email:</Label>
                 <Input
@@ -66,6 +55,6 @@ export const RegisterFormFields = () => {
                     }
                 />
             </div>
-        </div>
+        </form>
     )
 }

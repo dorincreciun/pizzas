@@ -1,12 +1,17 @@
 import {createRoot} from 'react-dom/client'
-import {Router} from "./router";
+import {Routing} from "./router";
+import {Providers} from "@app/providers";
+import {Header} from "@widgets/header";
+import {AuthModal} from "@widgets/auth-modal";
 import './styles/index.css'
 
 const RootLayout = () => {
     return (
-        <>
-            <Router />
-        </>
+        <Providers>
+            <Header />
+            <Routing />
+            <AuthModal />
+        </Providers>
     )
 }
 
