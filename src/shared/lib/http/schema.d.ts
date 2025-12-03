@@ -1086,11 +1086,13 @@ export interface components {
             name?: string;
         };
         AuthResponse: {
-            user?: components["schemas"]["UserDTO"];
+            /** @example Autentificare reușită */
+            message: string;
+            user: components["schemas"]["UserDTO"];
         };
         LogoutResponse: {
             /** @example Logged out */
-            message?: string;
+            message: string;
         };
         /**
          * @example {
@@ -1117,7 +1119,11 @@ export interface components {
             password: string;
         };
         Error: {
-            message?: string;
+            message: string;
+            details?: {
+                field?: string;
+                message?: string;
+            }[];
         };
         ProductWithRelations: {
             id?: number;
