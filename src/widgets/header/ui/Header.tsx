@@ -1,11 +1,11 @@
-import {APP_ROUTES} from "@shared/config";
 import {Link} from "react-router";
-import {Button, Logo} from "@shared/ui";
-import {useAuthModal} from "@widgets/auth-modal";
-import {useSessionStore} from "@entities/session";
 import {LogOut, ShoppingBag, User} from "lucide-react";
+import {useAuthModal} from "@widgets/auth-modal";
 import {userLogout} from "@features/auth/user-logout";
 import {SearchBar} from "@features/search";
+import {useSessionStore} from "@entities/session";
+import {Button, Logo} from "@shared/ui";
+import {APP_ROUTES} from "@shared/config";
 
 export const Header = () => {
     const open = useAuthModal((s) => s.open);
