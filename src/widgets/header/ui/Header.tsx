@@ -5,13 +5,14 @@ import {useAuthModal} from "@widgets/auth-modal";
 import {useSessionStore} from "@entities/session";
 import {LogOut, ShoppingBag, User} from "lucide-react";
 import {userLogout} from "@features/auth/user-logout";
+import {SearchBar} from "@features/search";
 
 export const Header = () => {
     const open = useAuthModal((s) => s.open);
     const user = useSessionStore((s) => s.user);
 
     return (
-        <header className="h-[75px] border-b border-gray-200">
+        <header className="py-10 border-b border-gray-200">
             <div className="container flex items-center justify-between h-full">
 
                 {/* Logo */}
@@ -21,6 +22,9 @@ export const Header = () => {
                 >
                     <Logo />
                 </Link>
+
+                {/* Search */}
+                <SearchBar />
 
                 <div className="flex gap-4">
                     {/* Cart button */}

@@ -64,13 +64,13 @@ export interface IInputProps extends TNativeInputProps, TInputVariants {
 }
 
 export const Input: FC<IInputProps> = ({ variant, size, className, startSlot, endSlot, ...rest }) => {
-
     return (
         <div className="relative flex items-center">
             {startSlot && (
                 <div
                     className={cn(
                         "absolute inset-y-0 left-3 flex items-center gap-1 text-muted",
+                        "z-10",
                         "[&_svg]:h-4 [&_svg]:w-4 [&_svg]:stroke-[1.5]"
                     )}
                 >
@@ -80,6 +80,7 @@ export const Input: FC<IInputProps> = ({ variant, size, className, startSlot, en
 
             <input
                 className={cn(
+                    "relative z-0",
                     inputVariants({
                         variant,
                         size,
@@ -95,6 +96,7 @@ export const Input: FC<IInputProps> = ({ variant, size, className, startSlot, en
                 <div
                     className={cn(
                         "absolute inset-y-0 right-3 flex items-center gap-1 text-muted",
+                        "z-10",
                         "[&_svg]:h-4 [&_svg]:w-4 [&_svg]:stroke-[1.5]"
                     )}
                 >
