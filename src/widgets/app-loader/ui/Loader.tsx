@@ -1,4 +1,4 @@
-import {useLoaderStore} from "../model/use-loader-store";
+import {useLoaderStore} from "../model/useLoaderStore";
 
 export const Loader = () => {
     const {isLoading} = useLoaderStore()

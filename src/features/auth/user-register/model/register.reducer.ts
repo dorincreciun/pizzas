@@ -10,7 +10,6 @@ type TRegisterAction =
     | { type: "SET_PASSWORD"; payload: string }
     | { type: "RESET"; }
 
-
 export const initialState: IRegisterReducer = {
     name: "",
     email: "",

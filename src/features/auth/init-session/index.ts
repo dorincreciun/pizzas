@@ -1,1 +1,1 @@
-export {initSession} from './api/init-session'
+export {initSession} from './api/initSession'

@@ -4,8 +4,8 @@ import { cn } from "@shared/lib/cn";
 import { Button } from "@shared/ui";
 import { FormField } from "@shared/ui/form-field";
 
-import { useRegisterForm } from "../model/use-register-form";
-import { registerUser } from "@features/auth/user-register";
+import { useRegisterForm } from "../model/useRegisterForm";
+import { registerUser } from "../api/registerUser";
 
 export const RegisterForm = ({ onClose }: { onClose: () => void }) => {
     const { state, setEmail, setPassword, setName } = useRegisterForm();

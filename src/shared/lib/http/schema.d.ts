@@ -1284,7 +1284,7 @@ export interface components {
              * @description ID-ul unic al produsului
              * @example 1
              */
-            id?: number;
+            id: number;
             /**
              * @description Numele produsului
              * @example Carne de porc
@@ -1297,15 +1297,16 @@ export interface components {
             description?: string;
             /**
              * Format: decimal
-             * @description Prețul produsului
+             * @description Prețul de bază al produsului
              * @example 25.5
              */
-            price: number;
+            basePrice: number;
             /**
              * @description Cantitatea în stoc
+             * @default 0
              * @example 100
              */
-            stock?: number;
+            stock: number;
             /**
              * @description ID-ul categoriei
              * @example 1
@@ -1316,14 +1317,14 @@ export interface components {
              * @description Data și ora creării
              * @example 2024-01-15T10:30:00Z
              */
-            createdAt?: string;
+            createdAt: string;
             /**
              * Format: date-time
              * @description Data și ora ultimei actualizări
              * @example 2024-01-15T10:30:00Z
              */
             updatedAt?: string;
-            category?: components["schemas"]["Category"];
+            category: components["schemas"]["Category"];
         };
         CreateProductRequest: {
             /**
@@ -1338,15 +1339,16 @@ export interface components {
             description?: string;
             /**
              * Format: decimal
-             * @description Prețul produsului
+             * @description Prețul de bază al produsului
              * @example 25.5
              */
-            price: number;
+            basePrice: number;
             /**
-             * @description Cantitatea în stoc
+             * @description Cantitatea în stoc (dacă nu este furnizată, se consideră 0)
+             * @default 0
              * @example 100
              */
-            stock?: number;
+            stock: number;
             /**
              * @description ID-ul categoriei
              * @example 1
@@ -1366,10 +1368,10 @@ export interface components {
             description?: string;
             /**
              * Format: decimal
-             * @description Prețul produsului
+             * @description Prețul de bază al produsului
              * @example 30
              */
-            price?: number;
+            basePrice?: number;
             /**
              * @description Cantitatea în stoc
              * @example 150

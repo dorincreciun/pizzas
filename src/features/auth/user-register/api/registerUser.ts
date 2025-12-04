@@ -1,5 +1,5 @@
 import {type components, http} from "@shared/lib/http";
-import {type IUser, mapUserDtoToUser} from "@entities/user";
+import {type IUser, mapUserDto} from "@entities/user";
 
 export type TRegisterUserError = components["schemas"]["Error"];
 
@@ -36,7 +36,7 @@ export async function registerUser({ name, email, password, }: IRegisterUserProp
             };
         }
 
-        const user = mapUserDtoToUser(data.user);
+        const user = mapUserDto(data.user);
 
         return {
             ok: true,

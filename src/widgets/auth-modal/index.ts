@@ -1,2 +1,2 @@
 export {AuthModal} from './ui/AuthModal'
-export {useAuthModal} from './model/use-auth-modal'
+export {useAuthModal} from './model/useAuthModal'

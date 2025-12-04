@@ -1,5 +1,5 @@
 import {create} from "zustand/react";
-import type {IAuthModalStore} from "./auth-modal.types";
+import type {IAuthModalStore} from "./authModal.types";
 
 export const useAuthModal = create<IAuthModalStore>()((set) => {
     return {

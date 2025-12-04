@@ -1,6 +1,6 @@
 import { http } from "@shared/lib/http";
 import { useSessionStore } from "@entities/session";
-import { mapUserDtoToUser } from "@entities/user";
+import { mapUserDto } from "@entities/user";
 
 export async function initSession(): Promise<void> {
     const { createSession, destroySession } = useSessionStore.getState();
@@ -19,7 +19,7 @@ export async function initSession(): Promise<void> {
             return;
         }
 
-        const user = mapUserDtoToUser(data.user);
+        const user = mapUserDto(data.user);
         createSession(user);
 
     } catch (e) {

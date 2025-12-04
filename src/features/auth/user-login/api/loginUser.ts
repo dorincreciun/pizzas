@@ -1,5 +1,5 @@
 import { type components, http } from "@shared/lib/http";
-import { type IUser, mapUserDtoToUser } from "@entities/user";
+import { type IUser, mapUserDto } from "@entities/user";
 
 interface ILoginUserParams {
     email: string;
@@ -35,7 +35,7 @@ export async function loginUser({ email, password }: ILoginUserParams): Promise<
             };
         }
 
-        const user = mapUserDtoToUser(data.user);
+        const user = mapUserDto(data.user);
 
         return {
             ok: true,

@@ -1,4 +1,4 @@
-import { useAuthModal } from "../model/use-auth-modal";
+import { useAuthModal } from "../model/useAuthModal";
 
 export const AuthModalSwitchHint = () => {
     const view = useAuthModal((s) => s.currentView);

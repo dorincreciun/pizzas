@@ -1,4 +1,4 @@
-import { loginUser } from "@features/auth/user-login";
+import { loginUser } from "../api/loginUser";
 import { useSessionStore } from "@entities/session";
 
 export async function submitLoginForm(email: string, password: string) {

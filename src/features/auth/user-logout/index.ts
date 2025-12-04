@@ -1,1 +1,1 @@
-export {userLogout} from './api/user-logout'
+export {userLogout} from './api/userLogout'

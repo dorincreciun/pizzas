@@ -1,2 +1,2 @@
 export {Loader} from './ui/Loader'
-export {useLoaderStore} from './model/use-loader-store'
+export {useLoaderStore} from './model/useLoaderStore'
