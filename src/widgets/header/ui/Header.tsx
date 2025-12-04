@@ -3,7 +3,7 @@ import {Link} from "react-router";
 import {Button, Logo} from "@shared/ui";
 import {useAuthModal} from "@widgets/auth-modal";
 import {useSessionStore} from "@entities/session";
-import {LogOut, User} from "lucide-react";
+import {LogOut, ShoppingBag, User} from "lucide-react";
 import {userLogout} from "@features/auth/user-logout";
 
 export const Header = () => {
@@ -22,8 +22,17 @@ export const Header = () => {
                     <Logo />
                 </Link>
 
-                {/* Auth button */}
-                <div>
+                <div className="flex gap-4">
+                    {/* Cart button */}
+                    <Button
+                        onlyIcon
+                        kind={"outlined"}
+                        aria-label={"Cart button"}
+                    >
+                        <ShoppingBag />
+                    </Button>
+
+                    {/* Auth button */}
                     {user ? (
                         <Button
                             onClick={() => userLogout()}
