@@ -4,7 +4,7 @@ import { cn } from "@shared/lib/cn";
 import { Button } from "@shared/ui";
 import { FormField } from "@shared/ui/form-field";
 import { useLoginForm } from "../model/useLoginForm";
-import { loginUser } from "@features/auth/user-login";
+import { loginUser } from "../api/loginUser";
 
 export const LoginForm = ({ onClose }: { onClose: () => void }) => {
     const { state, setEmail, setPassword } = useLoginForm();

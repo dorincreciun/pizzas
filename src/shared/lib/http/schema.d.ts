@@ -1202,12 +1202,12 @@ export interface components {
              * @description ID-ul unic al categoriei
              * @example 1
              */
-            id?: number;
+            id: number;
             /**
              * @description Identificator URL-friendly al categoriei
              * @example carne
              */
-            slug?: string;
+            slug: string;
             /**
              * @description Numele categoriei
              * @example Carne
@@ -1223,7 +1223,7 @@ export interface components {
              * @description Data și ora creării
              * @example 2024-01-15T10:30:00Z
              */
-            createdAt?: string;
+            createdAt: string;
             /**
              * Format: date-time
              * @description Data și ora ultimei actualizări
@@ -1296,6 +1296,12 @@ export interface components {
              */
             description?: string;
             /**
+             * Format: uri
+             * @description URL-ul imaginii produsului; poate fi null dacă produsul nu are imagine
+             * @example null
+             */
+            imageUrl: string | null;
+            /**
              * Format: decimal
              * @description Prețul de bază al produsului
              * @example 25.5
@@ -1338,6 +1344,12 @@ export interface components {
              */
             description?: string;
             /**
+             * Format: uri
+             * @description URL-ul imaginii produsului; dacă lipsește se va salva null
+             * @example https://cdn.example.com/img/produs-1.jpg
+             */
+            imageUrl?: string | null;
+            /**
              * Format: decimal
              * @description Prețul de bază al produsului
              * @example 25.5
@@ -1366,6 +1378,12 @@ export interface components {
              * @example Carne de porc premium proaspătă
              */
             description?: string;
+            /**
+             * Format: uri
+             * @description URL-ul imaginii produsului; poate fi setat la null pentru a elimina imaginea
+             * @example null
+             */
+            imageUrl?: string | null;
             /**
              * Format: decimal
              * @description Prețul de bază al produsului

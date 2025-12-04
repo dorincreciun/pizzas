@@ -1,6 +1,6 @@
-import type {IProduct, ProductDto} from "./product.types";
+import type {IProduct, TProductDto} from "./product.types";
 
-export function mapProductDto(product: ProductDto): IProduct {
+export function mapProductDto(product: TProductDto): IProduct {
     return {
         id: product.id,
         name: product.name,
@@ -8,6 +8,6 @@ export function mapProductDto(product: ProductDto): IProduct {
         basePrice: product.basePrice,
         stock: product.stock,
         categoryId: product.categoryId,
-        category: product.category
+        imageUrl: product.imageUrl
     }
 }

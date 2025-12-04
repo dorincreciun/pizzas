@@ -1,6 +1,6 @@
 import type {components} from "@shared/lib/http";
 
-export type ProductDto = components['schemas']['Product']
+export type TProductDto = components['schemas']['Product']
 
 export interface IProduct {
     id: number
@@ -9,5 +9,5 @@ export interface IProduct {
     basePrice: number,
     stock: number,
     categoryId: number,
-    category: components['schemas']['Category']
+    imageUrl: string | null
 }
