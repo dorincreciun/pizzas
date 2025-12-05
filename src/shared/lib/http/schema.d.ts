@@ -758,6 +758,80 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/products/search": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Caută produse după text
+         * @description Caută produse după nume și/sau descriere. Parametrul `q` este obligatoriu. Suportă filtre opționale, paginare și sortare.
+         */
+        get: {
+            parameters: {
+                query: {
+                    /** @description Termenul de căutare (căutare în nume/descriere) */
+                    q: string;
+                    /** @description Filtrează după slug-ul categoriei */
+                    categorySlug?: string;
+                    /** @description Preț minim (filtrare) */
+                    priceMin?: number;
+                    /** @description Preț maxim (filtrare) */
+                    priceMax?: number;
+                    /** @description Câmp de sortare (implicit createdAt) */
+                    sort?: "price" | "createdAt" | "popularity";
+                    /** @description Ordinea de sortare (implicit desc) */
+                    order?: "asc" | "desc";
+                    /** @description Pagina (implicit 1) */
+                    page?: number;
+                    /** @description Număr de elemente pe pagină (implicit 12) */
+                    limit?: number;
+                };
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description Rezultatele căutării */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["SearchProductsResponse"];
+                    };
+                };
+                /** @description Parametri invalizi (ex. lipsește q) */
+                400: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["ErrorResponse"];
+                    };
+                };
+                /** @description Eroare internă a serverului */
+                500: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["ErrorResponse"];
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/products/facets/{slug}": {
         parameters: {
             query?: never;
@@ -1331,6 +1405,21 @@ export interface components {
              */
             updatedAt?: string;
             category: components["schemas"]["Category"];
+        };
+        SearchProductsResponse: {
+            /** @example Căutarea produselor a fost efectuată cu succes */
+            message?: string;
+            data?: components["schemas"]["Product"][];
+            pagination?: {
+                /** @example 1 */
+                page?: number;
+                /** @example 12 */
+                limit?: number;
+                /** @example 120 */
+                total?: number;
+                /** @example 10 */
+                totalPages?: number;
+            };
         };
         CreateProductRequest: {
             /**

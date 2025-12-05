@@ -1,47 +1,30 @@
 import { cn } from "@shared/lib/cn";
-import { ProductSearchItem } from "@entities/product";
+import { type IProduct, ProductSearchItem } from "@entities/product";
 
-export const SearchResult = () => {
+export const SearchResult = ({ searchResults }: { searchResults: IProduct[] }) => {
+    if (!searchResults || searchResults.length === 0) {
+        return null;
+    }
+
     return (
-        <>
-            {/* Overlay */}
+        <div className="absolute left-10 right-10 top-full mt-2 z-50">
             <div
                 className={cn(
-                    "fixed inset-0 z-40",
-                    "bg-black/60",
-                    "will-change-[opacity,filter]",
-                    "[animation:fade-blur-in_.45s_cubic-bezier(0.16,1,0.3,1)_both]"
-                )}
-            />
-
-            {/* Results panel */}
-            <div
-                className={cn(
-                    "relative z-50",
                     "w-full bg-white rounded-xl shadow-xl py-3"
                 )}
             >
                 <div className="flex flex-col space-y-2">
-                    <ProductSearchItem
-                        id={1}
-                        name="Test Product"
-                        imageUrl={"/fallback-image.jpg"}
-                        basePrice={500}
-                    />
-                    <ProductSearchItem
-                        id={2}
-                        name="Test Product"
-                        imageUrl={"/fallback-image.jpg"}
-                        basePrice={500}
-                    />
-                    <ProductSearchItem
-                        id={3}
-                        name="Test Product"
-                        imageUrl={"/fallback-image.jpg"}
-                        basePrice={500}
-                    />
+                    {searchResults.map((product) => (
+                        <ProductSearchItem
+                            key={product.id}
+                            id={product.id}
+                            name={product.name}
+                            imageUrl={product.imageUrl ?? "/fallback-image.jpg"}
+                            basePrice={product.basePrice ?? "0.00"}
+                        />
+                    ))}
                 </div>
             </div>
-        </>
+        </div>
     );
 };
