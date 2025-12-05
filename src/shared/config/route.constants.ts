@@ -1,6 +1,12 @@
 export const APP_ROUTES = {
     DEFAULT: '/',
-    NOTFOUND: '*'
-} as const
+    PRODUCT: '/product/:id',
+    NOTFOUND: '*',
+} as const;
 
-export type TAPP_ROUTES = typeof APP_ROUTES[keyof typeof APP_ROUTES]
+type ExpandDynamicRoute<S extends string> =
+    S extends `${infer Start}:${string}` ? `${Start}${string}` : S;
+
+export type TAppRoute = ExpandDynamicRoute<
+    (typeof APP_ROUTES)[keyof typeof APP_ROUTES]
+>;

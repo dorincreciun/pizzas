@@ -6,7 +6,7 @@ export const Loader = () => {
     if (!isLoading) return null
 
     return (
-        <div className="fixed inset-0 flex items-center justify-center bg-white">
+        <div className="fixed inset-0 flex items-center justify-center bg-white z-50">
             <div role="status" aria-live="polite" className="inline-flex items-center gap-3">
                     <span className="relative inline-flex h-5 w-5">
                         <span
