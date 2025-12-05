@@ -17,7 +17,6 @@ export function useTypingDone(
     useEffect(() => {
         const trimmed = value.trim();
 
-        // dacă e gol, nu mai facem nimic și curățăm timeout-ul
         if (trimmed.length === 0) {
             if (timeoutRef.current !== null) {
                 clearTimeout(timeoutRef.current);

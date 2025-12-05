@@ -3,7 +3,7 @@ import { Search, X } from "lucide-react";
 import { Input } from "@shared/ui";
 import { SearchResult } from "./SearchResult";
 import { useSearchBar } from "../model/useSearchBar";
-import { SearchOverlay } from "@features/search/ui/SearchOverlay";
+import { SearchOverlay } from "./SearchOverlay";
 
 export const SearchBar = () => {
     const inputRef = useRef<HTMLInputElement>(null!);
@@ -26,7 +26,6 @@ export const SearchBar = () => {
             const active = document.activeElement;
             const el = inputRef.current;
 
-            // dacă focusul a revenit pe input, nu închidem
             if (el && active === el) return;
 
             setIsFocused(false);

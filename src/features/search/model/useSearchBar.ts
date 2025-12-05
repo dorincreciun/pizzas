@@ -1,6 +1,6 @@
 import { useState, useCallback, type ChangeEvent } from "react";
 import { useTypingDone } from "./useTypingDelay";
-import { getSearchProducts } from "@features/search/api/getSearchProducts";
+import { getSearchProducts } from "../api/getSearchProducts";
 import { mapProductDto, type IProduct } from "@entities/product";
 
 export function useSearchBar() {
