@@ -1,5 +1,5 @@
 import { useRef, useState, type FocusEvent } from "react";
-import { Search, X } from "lucide-react";
+import { Search, X, Loader2 } from "lucide-react";
 import { Input } from "@shared/ui";
 import { SearchResult } from "./SearchResult";
 import { useSearchBar } from "../model/useSearchBar";
@@ -13,6 +13,7 @@ export const SearchBar = () => {
         searchValue,
         showResults,
         results,
+        isLoading,
         handleValueChange,
         handleClear,
     } = useSearchBar();
@@ -22,7 +23,7 @@ export const SearchBar = () => {
     };
 
     const handleBlur = (_event: FocusEvent<HTMLInputElement>): void => {
-        setTimeout(() => {
+        setTimeout((): void => {
             const active = document.activeElement;
             const el = inputRef.current;
 
@@ -70,7 +71,18 @@ export const SearchBar = () => {
                     />
                 </div>
 
-                {isFocused && showResults && (
+                {/* Loading state sub input */}
+                {isFocused && isLoading && (
+                    <div className="absolute left-10 right-10 top-full mt-2 z-50">
+                        <div className="w-full bg-white rounded-xl shadow-xl py-3 px-4 flex items-center gap-2 text-sm text-muted-foreground">
+                            <Loader2 className="size-4 animate-spin" />
+                            <span>Se caută produsele...</span>
+                        </div>
+                    </div>
+                )}
+
+                {/* Rezultate doar când nu mai e loading */}
+                {isFocused && !isLoading && showResults && (
                     <SearchResult searchResults={results} />
                 )}
             </div>
