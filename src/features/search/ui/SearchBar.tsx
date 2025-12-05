@@ -71,7 +71,6 @@ export const SearchBar = () => {
                     />
                 </div>
 
-                {/* Loading state sub input */}
                 {isFocused && isLoading && (
                     <div className="absolute left-10 right-10 top-full mt-2 z-50">
                         <div className="w-full bg-white rounded-xl shadow-xl py-3 px-4 flex items-center gap-2 text-sm text-muted-foreground">
@@ -81,7 +80,6 @@ export const SearchBar = () => {
                     </div>
                 )}
 
-                {/* Rezultate doar când nu mai e loading */}
                 {isFocused && !isLoading && showResults && (
                     <SearchResult searchResults={results} />
                 )}
