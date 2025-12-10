@@ -4,4 +4,4 @@ export {Modal} from './modal'
 export {Input} from './input'
 export {Label} from './label'
 export {Hint} from './hint'
-
+export {SegmentedControl} from './segmented-control'

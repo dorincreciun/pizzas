@@ -30,6 +30,7 @@ export const Header = () => {
                     {/* Cart button */}
                     <Button
                         onlyIcon
+                        color={"secondary"}
                         kind={"outlined"}
                         aria-label={"Cart button"}
                     >

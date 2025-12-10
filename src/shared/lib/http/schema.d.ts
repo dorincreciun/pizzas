@@ -632,7 +632,9 @@ export interface paths {
                     };
                     content: {
                         "application/json": {
-                            items?: components["schemas"]["Category"][];
+                            /** @example true */
+                            success?: boolean;
+                            data?: components["schemas"]["Category"][];
                         };
                     };
                 };
@@ -691,14 +693,18 @@ export interface paths {
                     headers: {
                         [name: string]: unknown;
                     };
-                    content?: never;
+                    content: {
+                        "application/json": components["schemas"]["ErrorResponse"];
+                    };
                 };
                 /** @description Categoria nu a fost găsită */
                 404: {
                     headers: {
                         [name: string]: unknown;
                     };
-                    content?: never;
+                    content: {
+                        "application/json": components["schemas"]["ErrorResponse"];
+                    };
                 };
             };
         };
@@ -1303,7 +1309,7 @@ export interface components {
              * @description Data și ora ultimei actualizări
              * @example 2024-01-15T10:30:00Z
              */
-            updatedAt?: string;
+            updatedAt: string;
         };
         CreateCategoryRequest: {
             /**
